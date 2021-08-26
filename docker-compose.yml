@@ -1,10 +1,13 @@
 services:
   redis:
+    # TODO: Enable both AOF and RDB
     image: "bitnami/redis:6.2-debian-10"
     ports:
       - 6379:6379
     volumes:
       - dbfleet-bitnami-redis:/bitnami/redis/data
+    environment:
+      REDIS_PASSWORD: ${DBFLEET_REDIS_PASSWORD}
   postgres:
     image: "timescale/timescaledb-postgis:latest-pg12" # Warning: Deploy at your own risk!
     ports:
