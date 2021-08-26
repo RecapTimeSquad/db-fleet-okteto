@@ -1,11 +1,16 @@
 services:
   redis:
-    image: redis
+    image: "bitnami/redis:6.2-debian-10"
     ports:
       - 6379:6379
     volumes:
-      - redis:/data
+      - dbfleet-bitnami-redis:/bitnami/redis/data
   postgres:
-    image: "postgres:12"
+    image: "timescale/timescaledb-postgis:latest-pg12" # Warning: Deploy at your own risk!
     ports:
       - 5432:5432
+    environment:
+      PGDATA: /var/lib/postgresql/data/pgdata
+      POSTGRES_PASSWORD: ${DBFLEET_POSTGRES_PASSWORD}
+    volumes:
+      - dbfleet-postgres-tspg:/var/lib/postgresql/data
