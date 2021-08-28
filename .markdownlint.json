@@ -1,0 +1,9 @@
+{
+    "ul-style": false,
+    "ul-indent": false,
+    "line-length": false,
+    "blanks-around-fences": false,
+    "blanks-around-lists": false,
+    "no-trailing-punctuation": false,
+    "ol-prefix": false
+}
