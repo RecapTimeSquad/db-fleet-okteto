@@ -1,7 +1,7 @@
 services:
   redis:
-    # TODO: Enable both AOF and RDB
-    image: "bitnami/redis:6.2-debian-10"
+    build:
+      context: redis
     ports:
       - 6379:6379
     volumes:
