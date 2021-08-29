@@ -5,8 +5,8 @@
   "scripts": {
     "okteto:deploy": "okteto stack deploy",
     "okteto:destroy": "okteto stack destroy",
-    "okteto:login": "okteto login",
+    "okteto:login": "./scripts/login.sh",
     "login": "yarn okteto:login",
-    "gitpod:build": "./scripts/build-ws-image"
+    "gitpod:build": "./scripts/build-ws-image.sh"
   }
 }
