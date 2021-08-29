@@ -1,0 +1,12 @@
+{
+  "name": "@thepinsteam/db-fleet-okteto",
+  "packageManager": "yarn@3.0.1",
+  "version": "0.1.0",
+  "scripts": {
+    "okteto:deploy": "okteto stack deploy",
+    "okteto:destroy": "okteto stack destroy",
+    "okteto:login": "okteto login",
+    "login": "yarn okteto:login",
+    "gitpod:build": "./scripts/build-ws-image"
+  }
+}
