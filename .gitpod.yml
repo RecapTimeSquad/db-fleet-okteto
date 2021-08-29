@@ -1,2 +1,6 @@
 image:
   file: .gitpod.Dockerfile
+
+# Added to ensure things will be fine, especially we hardcoded the $KUBECONFIG
+checkoutLocation: db-fleet-okteto
+workspaceLocation: db-fleet-okteto
