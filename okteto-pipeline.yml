@@ -2,3 +2,5 @@ deploy:
   - okteto stack deploy --build
 destory:
   - okteto stack destory
+devs:
+  - okteto-stack.yml

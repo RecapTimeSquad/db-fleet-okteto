@@ -17,3 +17,23 @@ services:
       POSTGRES_PASSWORD: ${DBFLEET_POSTGRES_PASSWORD}
     volumes:
       - dbfleet-postgres-tspg:/var/lib/postgresql/data
+
+volumes:
+  dbfleet-bitnami-redis:
+    driver_opts:
+      size: 512Mi
+  dbfleet-postgres-tspg:
+    driver_opts:
+      size: 1Gi
+
+# Since these ports don't autmatically made public for security reasons,
+# we need to use endpoints here.
+endpoints:
+  redis-dbfleet1:
+    - path: /
+      service: redis
+      port: 6379
+  postgres-dbfleet1:
+    - path: /
+      service: postgres
+      port: 5432
