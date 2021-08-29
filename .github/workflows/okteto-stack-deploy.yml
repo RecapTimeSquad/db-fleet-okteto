@@ -1,0 +1,33 @@
+name: Deploy stack to Okteto
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    env:
+      # You want to change this, right?
+      stack_name: db-fleet-okteto
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Sign In to Okteto
+        uses: okteto/login@master
+        with:
+          token: ${{ secrets.OKTETO_TOKEN }}
+          # Change the value below to use your Okteto Enterprise instance
+          url: https://cloud.okteto.com
+    
+      - name: Switch namespace
+        uses: okteto/namespace@master
+        with:
+          namespace: ${{  secrets.OKTETO_NAMESPACE }}
+        
+      - name: Deploy stack
+        uses: okteto/deploy-stack@master
+        with:
+          # Change the stack name into whatever you want.
+          name: ${{env.stack_name}}
+          build: "true"
